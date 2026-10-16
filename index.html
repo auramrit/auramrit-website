@@ -1,0 +1,1182 @@
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Auramrit | The Blend of Blessings — Coming Soon</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        brand: {
+          green: '#385D2F',
+          darkGreen: '#26421F',
+          lightGreen: '#EBF2E9',
+          cream: '#FCF9F1',
+          warmCream: '#F4EFE4',
+          brown: '#7C5131',
+          amber: '#D87D36',
+          gold: '#E3B063'
+        }
+      },
+      fontFamily: {
+        serif: ['"Fraunces"', 'serif'],
+        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+      },
+      animation: {
+        'spin-slow': 'spinSlow 20s linear infinite',
+        'float': 'float 6s ease-in-out infinite',
+        'float-delay': 'float 6s ease-in-out 2s infinite',
+        'pulse-soft': 'pulseSoft 4s ease-in-out infinite',
+        'marquee': 'marquee 30s linear infinite',
+        'shimmer': 'shimmer 2.5s ease-in-out infinite',
+        'bounce-gentle': 'bounceGentle 2s ease-in-out infinite',
+        'scale-in': 'scaleIn 0.6s ease-out forwards',
+        'fade-up': 'fadeUp 0.8s ease-out forwards',
+      },
+      keyframes: {
+        spinSlow: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' }
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-14px)' }
+        },
+        pulseSoft: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0.6' }
+        },
+        marquee: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' }
+        },
+        shimmer: {
+          '0%': { backgroundPosition: '-200% 0' },
+          '100%': { backgroundPosition: '200% 0' }
+        },
+        bounceGentle: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-6px)' }
+        },
+        scaleIn: {
+          '0%': { opacity: '0', transform: 'scale(0.9)' },
+          '100%': { opacity: '1', transform: 'scale(1)' }
+        },
+        fadeUp: {
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' }
+        }
+      }
+    }
+  }
+}
+</script>
+<style>
+  body {
+    background-color: #FCF9F1;
+    color: #1F2E1B;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4, .font-serif {
+    font-family: 'Fraunces', serif;
+  }
+  .pattern-bg {
+    background-image: radial-gradient(#385D2F 0.5px, transparent 0.5px), radial-gradient(#385D2F 0.5px, #FCF9F1 0.5px);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+    background-color: #FCF9F1;
+    opacity: 0.35;
+  }
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: #FCF9F1; }
+  ::-webkit-scrollbar-thumb { background: #385D2F; border-radius: 4px; }
+
+  .card-hover {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 32px 48px -16px rgba(56, 93, 47, 0.15);
+  }
+  .glass-panel {
+    background: rgba(252, 249, 241, 0.88);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(56, 93, 47, 0.08);
+  }
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal-left.active {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .reveal-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal-right.active {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .reveal-scale {
+    opacity: 0;
+    transform: scale(0.92);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal-scale.active {
+    opacity: 1;
+    transform: scale(1);
+  }
+  .text-gradient {
+    background: linear-gradient(135deg, #385D2F, #7C5131);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #D87D36, #E3B063);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  #guarantee-modal {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  #guarantee-modal.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .toast {
+    transition: transform 0.35s cubic-bezier(0.18, 0.89, 0.32, 1.28), opacity 0.3s ease;
+  }
+  .toast.show {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  @keyframes grain {
+    0%, 100% { transform: translate(0,0) }
+    10% { transform: translate(-2%,-3%) }
+    30% { transform: translate(3%,2%) }
+    50% { transform: translate(-1%,3%) }
+    70% { transform: translate(2%,-2%) }
+    90% { transform: translate(-3%,1%) }
+  }
+  .hero-img { animation: grain 8s steps(10) infinite; }
+
+  .category-card-img {
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .category-card:hover .category-card-img {
+    transform: scale(1.12) rotate(2deg);
+  }
+  .product-card-img {
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .product-card:hover .product-card-img {
+    transform: scale(1.08);
+  }
+  .glow-amber {
+    box-shadow: 0 0 40px rgba(216, 125, 54, 0.15), 0 0 80px rgba(216, 125, 54, 0.08);
+  }
+  .glow-green {
+    box-shadow: 0 0 40px rgba(56, 93, 47, 0.12), 0 0 80px rgba(56, 93, 47, 0.06);
+  }
+  .marquee-track {
+    display: flex;
+    animation: marquee 30s linear infinite;
+  }
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+
+  /* Coming Soon Banner Styles */
+  .coming-soon-badge {
+    background: linear-gradient(135deg, #D87D36, #E3B063, #D87D36);
+    background-size: 200% 100%;
+    animation: shimmer 2.5s ease-in-out infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .countdown-box {
+    background: rgba(252, 249, 241, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(56, 93, 47, 0.12);
+  }
+  .notify-input:focus {
+    box-shadow: 0 0 0 3px rgba(56, 93, 47, 0.15);
+  }
+  .opening-soon-glow {
+    text-shadow: 0 0 40px rgba(216, 125, 54, 0.3);
+  }
+  .pulse-ring {
+    animation: pulseRing 2s ease-out infinite;
+  }
+  @keyframes pulseRing {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(1.5); opacity: 0; }
+  }
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+</style>
+</head>
+<body class="antialiased selection:bg-brand-green selection:text-brand-cream">
+
+<!-- TOAST -->
+<div id="toast" class="toast fixed bottom-6 left-1/2 -translate-x-1/2 bg-brand-darkGreen text-white px-6 py-3 rounded-full shadow-2xl flex items-center gap-3 z-[60] transform translate-y-20 opacity-0">
+  <i data-lucide="check-circle" class="w-5 h-5 text-brand-gold"></i>
+  <span class="font-semibold text-sm">Added to basket</span>
+</div>
+
+<!-- TOP BAR -->
+<div class="bg-brand-green text-brand-cream text-xs sm:text-sm py-2.5 px-4 text-center font-medium tracking-wide flex items-center justify-center gap-2 relative z-40">
+  <i data-lucide="sparkles" class="w-4 h-4 text-brand-gold shrink-0"></i>
+  <span><strong>Grand Opening Soon!</strong> Be the first to experience farm-fresh purity. <span class="hidden sm:inline">Sign up for early access & 15% off!</span></span>
+</div>
+
+<!-- NAVIGATION -->
+<header id="navbar" class="sticky top-0 z-40 bg-brand-cream/85 backdrop-blur-lg border-b border-brand-green/8 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-20">
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg text-brand-green hover:bg-brand-lightGreen transition" aria-label="Toggle menu">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-3 group" aria-label="Auramrit Home">
+        <div class="w-12 h-12 rounded-full bg-brand-green flex items-center justify-center group-hover:rotate-12 transition duration-500 shadow-md">
+          <i data-lucide="leaf" class="w-6 h-6 text-white"></i>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-serif text-2xl sm:text-3xl font-bold text-brand-darkGreen tracking-tight leading-none">Auramrit</span>
+          <span class="text-[10px] uppercase tracking-[0.3em] text-brand-brown font-semibold mt-0.5">The Blend of Blessings</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center space-x-8 text-sm font-semibold text-brand-darkGreen">
+        <a href="#categories" class="hover:text-brand-amber transition py-2">Collections</a>
+        <a href="#products" class="hover:text-brand-amber transition py-2">Products</a>
+        <a href="#guarantee" class="hover:text-brand-amber transition py-2">Our Promise</a>
+        <a href="#story" class="hover:text-brand-amber transition py-2">Our Story</a>
+        <a href="#notify" class="flex items-center gap-1.5 text-brand-green bg-brand-lightGreen px-3.5 py-1.5 rounded-full hover:bg-brand-green hover:text-white transition">
+          <i data-lucide="bell" class="w-4 h-4 text-brand-amber"></i>
+          <span>Notify Me</span>
+        </a>
+      </nav>
+
+      <!-- Actions -->
+      <div class="flex items-center space-x-3">
+        <button onclick="openGuaranteeModal()" class="p-2.5 rounded-full text-brand-green hover:bg-brand-lightGreen transition relative group hidden sm:block" title="Purity Guarantee">
+          <i data-lucide="shield-check" class="w-5 h-5"></i>
+        </button>
+        <a href="#notify" class="flex items-center gap-2 bg-brand-green hover:bg-brand-darkGreen text-brand-cream px-5 py-2.5 rounded-full font-medium text-sm transition shadow-sm hover:shadow-lg">
+          <span class="hidden sm:inline">Get Notified</span>
+          <i data-lucide="bell-ring" class="w-4 h-4"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden lg:hidden bg-brand-cream border-b border-brand-green/15 px-4 pt-3 pb-6 space-y-3">
+    <a href="#categories" class="block py-2 text-base font-semibold text-brand-darkGreen border-b border-brand-green/10" onclick="toggleMobileMenu()">Collections</a>
+    <a href="#products" class="block py-2 text-base font-semibold text-brand-darkGreen border-b border-brand-green/10" onclick="toggleMobileMenu()">All Products</a>
+    <a href="#guarantee" class="block py-2 text-base font-semibold text-brand-darkGreen border-b border-brand-green/10" onclick="toggleMobileMenu()">Money-Back Guarantee</a>
+    <a href="#story" class="block py-2 text-base font-semibold text-brand-darkGreen border-b border-brand-green/10" onclick="toggleMobileMenu()">Our Story</a>
+    <a href="#notify" class="block py-2 text-base font-bold text-brand-amber" onclick="toggleMobileMenu()">🔔 Notify Me at Launch</a>
+  </div>
+</header>
+
+<!-- HERO SECTION -->
+<section class="relative overflow-hidden pt-12 pb-20 lg:pt-16 lg:pb-32 bg-gradient-to-b from-brand-cream via-brand-warmCream/30 to-brand-cream">
+  <div class="absolute inset-0 pattern-bg pointer-events-none"></div>
+  <div class="absolute top-20 left-[-10%] w-80 h-80 bg-brand-amber/10 rounded-full blur-[120px] pointer-events-none"></div>
+  <div class="absolute bottom-10 right-[-10%] w-96 h-96 bg-brand-green/8 rounded-full blur-[120px] pointer-events-none"></div>
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-brand-green/5 rounded-full pointer-events-none animate-spin-slow"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+      <!-- Left: Copy -->
+      <div class="space-y-7 text-center lg:text-left reveal">
+        <!-- Opening Soon Badge -->
+        <div class="inline-flex items-center gap-2 bg-brand-amber/15 border border-brand-amber/30 px-5 py-2 rounded-full text-brand-amber text-xs sm:text-sm font-bold uppercase tracking-wider">
+          <span class="relative flex h-3 w-3">
+            <span class="pulse-ring absolute inline-flex h-full w-full rounded-full bg-brand-amber opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-3 w-3 bg-brand-amber"></span>
+          </span>
+          Opening Soon — Get Early Access
+        </div>
+
+        <h1 class="font-serif text-4xl sm:text-5xl lg:text-[4.2rem] xl:text-7xl font-bold text-brand-darkGreen leading-[1.08] tracking-tight">
+          Wholesome<br />
+          Nutrition,<br />
+          <span class="text-brand-brown italic font-normal">The Blend of</span><br />
+          <span class="text-brand-brown italic font-normal">Blessings.</span>
+        </h1>
+
+        <p class="text-base sm:text-lg text-brand-darkGreen/80 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+          Welcome to <strong>Auramrit</strong> — your trusted source for handpicked premium nuts, raw super-seeds, and heritage grains. We're preparing something extraordinary. Experience the crunch and aroma of real, unadulterated harvests with our industry-first <strong>100% Taste & Purity Money-Back Guarantee</strong>.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+          <a href="#notify" class="w-full sm:w-auto px-10 py-4 bg-brand-green hover:bg-brand-darkGreen text-brand-cream font-semibold rounded-full shadow-lg shadow-brand-green/25 hover:shadow-xl transition flex items-center justify-center gap-2 text-base">
+            <span>Notify Me at Launch</span>
+            <i data-lucide="bell-ring" class="w-5 h-5"></i>
+          </a>
+          <a href="#products" class="w-full sm:w-auto px-8 py-4 bg-white hover:bg-brand-warmCream text-brand-darkGreen border-2 border-brand-green/20 font-semibold rounded-full transition flex items-center justify-center gap-2 text-base">
+            <i data-lucide="eye" class="w-5 h-5 text-brand-amber"></i>
+            <span>Preview Products</span>
+          </a>
+        </div>
+
+        <!-- Trust Metrics -->
+        <div class="pt-8 border-t border-brand-green/10 grid grid-cols-3 gap-6 max-w-xl mx-auto lg:mx-0">
+          <div>
+            <p class="font-serif text-3xl font-bold text-brand-green">100%</p>
+            <p class="text-xs text-brand-darkGreen/70 font-medium mt-1">Zero Preservatives</p>
+          </div>
+          <div class="border-x border-brand-green/10 py-4">
+            <p class="font-serif text-3xl font-bold text-brand-brown">15-Day</p>
+            <p class="text-xs text-brand-darkGreen/70 font-medium mt-1">No-Questions Refund</p>
+          </div>
+          <div>
+            <p class="font-serif text-3xl font-bold text-brand-green">25K+</p>
+            <p class="text-xs text-brand-darkGreen/70 font-medium mt-1">Happy Indian Homes</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Visual Composition -->
+      <div class="relative flex justify-center reveal" style="transition-delay: 0.25s;">
+        <div class="relative max-w-md lg:max-w-[480px]">
+          <!-- Main Image -->
+          <div class="relative rounded-[3rem] overflow-hidden border-[6px] border-white shadow-2xl aspect-[4/5] bg-brand-brown glow-amber">
+            <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=1000&q=85" alt="Assortment of Almonds, Walnuts, Seeds and Grains" class="w-full h-full object-cover object-center hero-img" />
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-darkGreen/60 via-transparent to-transparent"></div>
+            <div class="absolute bottom-8 left-8 right-8 text-white">
+              <p class="font-serif text-2xl sm:text-3xl font-bold leading-tight">Nature's Finest,<br /><span class="text-brand-gold italic font-normal">Delivered Fresh.</span></p>
+            </div>
+          </div>
+
+          <!-- Floating Badge: Coming Soon Seal -->
+          <div class="cursor-pointer absolute -top-6 -left-4 sm:-left-8 bg-brand-cream border-2 border-brand-amber rounded-2xl p-3.5 shadow-2xl flex items-center gap-3 hover:scale-105 transition animate-float z-20">
+            <div class="w-11 h-11 rounded-full bg-brand-amber/20 border border-brand-amber flex items-center justify-center shrink-0 text-brand-amber">
+              <i data-lucide="rocket" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <p class="text-[10px] font-bold text-brand-darkGreen leading-tight">Launching Soon</p>
+              <p class="text-[10px] text-brand-darkGreen/70 leading-tight mt-0.5">Early Bird Discounts</p>
+            </div>
+          </div>
+
+          <!-- Floating Badge: Farm Direct -->
+          <div class="hidden sm:flex absolute top-1/4 -right-6 bg-brand-green text-brand-cream rounded-2xl py-2.5 px-4 shadow-xl items-center gap-2 animate-float-delay z-20">
+            <i data-lucide="sprout" class="w-4 h-4 text-brand-gold"></i>
+            <span class="text-xs font-semibold">Natural Oils Intact</span>
+          </div>
+
+          <!-- Floating Badge: Lab Tested -->
+          <div class="hidden md:flex absolute bottom-16 -left-4 bg-white text-brand-darkGreen rounded-2xl py-2.5 px-4 shadow-xl items-center gap-2 animate-float z-20" style="animation-delay: 1s;">
+            <i data-lucide="flask-conical" class="w-4 h-4 text-brand-green"></i>
+            <span class="text-xs font-semibold">Lab Tested</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COUNTDOWN / OPENING SOON BANNER -->
+<section id="notify" class="py-16 lg:py-20 relative overflow-hidden bg-gradient-to-br from-brand-darkGreen via-brand-green to-brand-darkGreen">
+  <div class="absolute inset-0 pattern-bg pointer-events-none" style="opacity: 0.08;"></div>
+  <div class="absolute top-0 left-1/4 w-96 h-96 bg-brand-amber/10 rounded-full blur-[120px] pointer-events-none"></div>
+  <div class="absolute bottom-0 right-1/4 w-80 h-80 bg-brand-gold/8 rounded-full blur-[100px] pointer-events-none"></div>
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center reveal-scale">
+    <!-- Decorative top element -->
+    <div class="w-20 h-20 rounded-full bg-brand-amber/20 border-2 border-brand-amber/40 flex items-center justify-center mx-auto mb-8 animate-bounce-gentle">
+      <i data-lucide="clock" class="w-10 h-10 text-brand-gold"></i>
+    </div>
+
+    <span class="text-xs font-bold uppercase tracking-widest text-brand-gold block mb-3">Something Beautiful is Brewing</span>
+    <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 leading-tight">
+      We're <span class="text-gradient-gold italic">Opening Soon</span>
+    </h2>
+    <p class="text-brand-cream/75 text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
+      Our digital store is being lovingly prepared to bring you the freshest, purest nuts, seeds, and grains — straight from Indian farms to your doorstep. Be the first to know when we go live!
+    </p>
+
+    <!-- Countdown Timer -->
+    <div class="flex items-center justify-center gap-3 sm:gap-5 mb-10">
+      <div class="countdown-box rounded-2xl p-4 sm:p-5 min-w-[72px] sm:min-w-[90px]">
+        <p id="countdown-days" class="font-serif text-3xl sm:text-4xl font-bold text-brand-darkGreen">30</p>
+        <p class="text-[10px] sm:text-xs text-brand-darkGreen/60 font-medium uppercase tracking-wider mt-1">Days</p>
+      </div>
+      <span class="text-brand-gold text-2xl font-bold">:</span>
+      <div class="countdown-box rounded-2xl p-4 sm:p-5 min-w-[72px] sm:min-w-[90px]">
+        <p id="countdown-hours" class="font-serif text-3xl sm:text-4xl font-bold text-brand-darkGreen">12</p>
+        <p class="text-[10px] sm:text-xs text-brand-darkGreen/60 font-medium uppercase tracking-wider mt-1">Hours</p>
+      </div>
+      <span class="text-brand-gold text-2xl font-bold">:</span>
+      <div class="countdown-box rounded-2xl p-4 sm:p-5 min-w-[72px] sm:min-w-[90px]">
+        <p id="countdown-minutes" class="font-serif text-3xl sm:text-4xl font-bold text-brand-darkGreen">45</p>
+        <p class="text-[10px] sm:text-xs text-brand-darkGreen/60 font-medium uppercase tracking-wider mt-1">Mins</p>
+      </div>
+      <span class="text-brand-gold text-2xl font-bold">:</span>
+      <div class="countdown-box rounded-2xl p-4 sm:p-5 min-w-[72px] sm:min-w-[90px]">
+        <p id="countdown-seconds" class="font-serif text-3xl sm:text-4xl font-bold text-brand-green">00</p>
+        <p class="text-[10px] sm:text-xs text-brand-darkGreen/60 font-medium uppercase tracking-wider mt-1">Secs</p>
+      </div>
+    </div>
+
+    <!-- Email Signup -->
+    <form onsubmit="event.preventDefault(); handleNotifySignup();" class="flex flex-col sm:flex-row gap-3 justify-center max-w-lg mx-auto">
+      <input id="notify-email" type="email" placeholder="Enter your email for early access" required class="notify-input flex-1 px-6 py-4 rounded-full bg-white border border-brand-green/20 text-brand-darkGreen placeholder-brand-darkGreen/40 focus:outline-none focus:border-brand-green transition shadow-lg text-sm" />
+      <button type="submit" class="bg-brand-amber hover:bg-brand-amber/90 text-white font-bold px-8 py-4 rounded-full transition shadow-lg text-sm flex items-center justify-center gap-2 whitespace-nowrap">
+        <i data-lucide="bell-ring" class="w-4 h-4"></i>
+        <span>Notify Me</span>
+      </button>
+    </form>
+    <p class="text-brand-cream/50 text-xs mt-4">🎁 Early subscribers get 15% off + free shipping on their first order!</p>
+  </div>
+</section>
+
+<!-- MARQUEE TRUST STRIP -->
+<section class="py-5 bg-brand-darkGreen text-brand-cream/80 overflow-hidden border-y border-brand-green/30">
+  <div class="marquee-track whitespace-nowrap">
+    <span class="mx-8 text-sm font-medium flex items-center gap-2"><i data-lucide="leaf" class="w-4 h-4 text-brand-gold inline"></i> 100% Unpolished</span>
+    <span class="mx-8 text-sm font-medium flex items-center gap-2"><i data-lucide="snowflake" class="w-4 h-4 text-brand-gold inline"></i> 12°C Cold-Chain</span>
+    <span class="mx-8 text-sm font-medium flex items-center gap-2"><i data-lucide="shield-check" class="w-4 h-4 text-brand-gold inline"></i> Lab Tested Purity</span>
+    <span class="mx-8 text-sm font-medium flex items-center gap-2"><i data-lucide="heart" class="w-4 h-4 text-brand-gold inline"></i> 25K+ Happy Families</span>
+    <span class="mx-8 text-sm font-medium flex items-center gap-2"><i data-lucide="award" class="w-4 h-4 text-brand-gold inline"></i> Money-Back Guarantee</span>
+    <span class="mx-8 text-sm font-medium flex items-center gap-2"><i data-lucide="truck" class="w-4 h-4 text-brand-gold inline"></i> Free Shipping ₹999+</span>
+    <span class="mx-8 text-sm font-medium flex items-center gap-2"><i data-lucide="recycle" class="w-4 h-4 text-brand-gold inline"></i> Eco-Friendly Packaging</span>
+    <span class="mx-8 text-sm font-medium flex items-center gap-2"><i data-lucide="sprout" class="w-4 h-4 text-brand-gold inline"></i> Farm-Direct Sourcing</span>
+    <!-- Repeat for seamless loop -->
+    <span class="mx-8 text-sm font-medium flex items-center gap-2"><i data-lucide="leaf" class="w-4 h-4 text-brand-gold inline"></i> 100% Unpolished</span>
+    <span class="mx-8 text-sm font-medium flex items-center gap-2"><i data-lucide="snowflake" class="w-4 h-4 text-brand-gold inline"></i> 12°C Cold-Chain</span>
+    <span class="mx-8 text-sm font-medium flex items-center gap-2"><i data-lucide="shield-check" class="w-4 h-4 text-brand-gold inline"></i> Lab Tested Purity</span>
+    <span class="mx-8 text-sm font-medium flex items-center gap-2"><i data-lucide="heart" class="w-4 h-4 text-brand-gold inline"></i> 25K+ Happy Families</span>
+    <span class="mx-8 text-sm font-medium flex items-center gap-2"><i data-lucide="award" class="w-4 h-4 text-brand-gold inline"></i> Money-Back Guarantee</span>
+    <span class="mx-8 text-sm font-medium flex items-center gap-2"><i data-lucide="truck" class="w-4 h-4 text-brand-gold inline"></i> Free Shipping ₹999+</span>
+    <span class="mx-8 text-sm font-medium flex items-center gap-2"><i data-lucide="recycle" class="w-4 h-4 text-brand-gold inline"></i> Eco-Friendly Packaging</span>
+    <span class="mx-8 text-sm font-medium flex items-center gap-2"><i data-lucide="sprout" class="w-4 h-4 text-brand-gold inline"></i> Farm-Direct Sourcing</span>
+  </div>
+</section>
+
+<!-- CATEGORY SHOWCASE -->
+<section id="categories" class="py-20 lg:py-28 bg-white relative overflow-hidden">
+  <div class="absolute -right-32 -top-32 w-96 h-96 bg-brand-lightGreen rounded-full blur-[100px] pointer-events-none opacity-60"></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="text-center max-w-2xl mx-auto mb-14 reveal">
+      <span class="text-xs font-bold uppercase tracking-widest text-brand-amber block mb-2">Curated Collections</span>
+      <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-darkGreen">Explore by Nature's Category</h2>
+      <p class="text-brand-darkGreen/70 mt-4">Each collection is a testament to purity — handpicked from the finest orchards and farms across India.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+      <!-- Royal Nuts -->
+      <a href="#products" onclick="filterCategory('nuts')" class="category-card group relative rounded-[2.5rem] overflow-hidden aspect-[3/4] cursor-pointer card-hover reveal" style="transition-delay: 0.1s;">
+        <img src="https://images.unsplash.com/photo-1508061253366-f7da158b6d46?auto=format&fit=crop&w=800&q=85" alt="Royal Nuts" class="category-card-img w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-darkGreen/80 via-brand-darkGreen/20 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+          <div class="inline-flex items-center gap-1.5 bg-brand-amber/90 text-white text-[10px] font-bold px-3 py-1 rounded-full mb-3">
+            <i data-lucide="crown" class="w-3 h-3"></i> PREMIUM
+          </div>
+          <h3 class="font-serif text-2xl sm:text-3xl font-bold leading-tight">Royal Nuts</h3>
+          <p class="text-white/75 text-sm mt-2">Almonds • Walnuts • Cashews • Pistachios</p>
+          <div class="flex items-center gap-2 mt-4 text-brand-gold text-sm font-semibold group-hover:translate-x-2 transition">
+            <span>View Collection</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </div>
+        </div>
+      </a>
+
+      <!-- Super Seeds -->
+      <a href="#products" onclick="filterCategory('seeds')" class="category-card group relative rounded-[2.5rem] overflow-hidden aspect-[3/4] cursor-pointer card-hover reveal" style="transition-delay: 0.2s;">
+        <img src="https://images.unsplash.com/photo-1515543237350-b3eea1ec8082?auto=format&fit=crop&w=800&q=85" alt="Super Seeds" class="category-card-img w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-darkGreen/80 via-brand-darkGreen/20 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+          <div class="inline-flex items-center gap-1.5 bg-brand-green/90 text-white text-[10px] font-bold px-3 py-1 rounded-full mb-3">
+            <i data-lucide="sparkles" class="w-3 h-3"></i> SUPERFOOD
+          </div>
+          <h3 class="font-serif text-2xl sm:text-3xl font-bold leading-tight">Super Seeds</h3>
+          <p class="text-white/75 text-sm mt-2">Chia • Pumpkin • Flax • Hemp • Sunflower</p>
+          <div class="flex items-center gap-2 mt-4 text-brand-gold text-sm font-semibold group-hover:translate-x-2 transition">
+            <span>View Collection</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </div>
+        </div>
+      </a>
+
+      <!-- Ancient Grains -->
+      <a href="#products" onclick="filterCategory('grains')" class="category-card group relative rounded-[2.5rem] overflow-hidden aspect-[3/4] cursor-pointer card-hover reveal" style="transition-delay: 0.3s;">
+        <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=800&q=85" alt="Ancient Grains" class="category-card-img w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-darkGreen/80 via-brand-darkGreen/20 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+          <div class="inline-flex items-center gap-1.5 bg-brand-brown/90 text-white text-[10px] font-bold px-3 py-1 rounded-full mb-3">
+            <i data-lucide="wheat" class="w-3 h-3"></i> HERITAGE
+          </div>
+          <h3 class="font-serif text-2xl sm:text-3xl font-bold leading-tight">Ancient Grains</h3>
+          <p class="text-white/75 text-sm mt-2">Quinoa • Millets • Amaranth • Jowar</p>
+          <div class="flex items-center gap-2 mt-4 text-brand-gold text-sm font-semibold group-hover:translate-x-2 transition">
+            <span>View Collection</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT SHOWCASE (NO PRICES) -->
+<section id="products" class="py-20 lg:py-28 bg-brand-cream relative">
+  <div class="absolute -left-32 -bottom-32 w-96 h-96 bg-brand-amber/5 rounded-full blur-[100px] pointer-events-none"></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 reveal">
+      <div>
+        <span class="text-xs font-bold uppercase tracking-widest text-brand-brown block mb-2">Farm-to-Jar Freshness</span>
+        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-darkGreen">Our Harvest Collection</h2>
+        <p class="text-brand-darkGreen/60 text-sm mt-2">Prices will be revealed at launch. Sign up for early-bird pricing!</p>
+      </div>
+      <div class="flex flex-wrap items-center gap-2 bg-brand-warmCream p-1.5 rounded-2xl border border-brand-green/10">
+        <button onclick="filterCategory('all')" data-filter="all" class="filter-btn active px-5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition bg-brand-green text-white shadow-sm">All</button>
+        <button onclick="filterCategory('nuts')" data-filter="nuts" class="filter-btn px-5 py-2 rounded-xl text-xs sm:text-sm font-semibold text-brand-darkGreen hover:bg-white/60 transition">Nuts</button>
+        <button onclick="filterCategory('seeds')" data-filter="seeds" class="filter-btn px-5 py-2 rounded-xl text-xs sm:text-sm font-semibold text-brand-darkGreen hover:bg-white/60 transition">Seeds</button>
+        <button onclick="filterCategory('grains')" data-filter="grains" class="filter-btn px-5 py-2 rounded-xl text-xs sm:text-sm font-semibold text-brand-darkGreen hover:bg-white/60 transition">Grains</button>
+        <button onclick="filterCategory('guarantee')" data-filter="guarantee" class="filter-btn px-5 py-2 rounded-xl text-xs sm:text-sm font-semibold text-brand-amber hover:bg-white/60 transition flex items-center gap-1.5">
+          <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+          <span>Guaranteed</span>
+        </button>
+      </div>
+    </div>
+    <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-7">
+      <!-- Products injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- MONEY-BACK GUARANTEE SECTION -->
+<section id="guarantee" class="py-20 lg:py-28 bg-brand-darkGreen text-brand-cream relative overflow-hidden">
+  <div class="absolute -right-24 -top-24 w-96 h-96 rounded-full border border-brand-amber/15 pointer-events-none"></div>
+  <div class="absolute -left-24 -bottom-24 w-96 h-96 rounded-full border border-brand-green/15 pointer-events-none"></div>
+  <div class="absolute top-1/2 right-0 w-64 h-64 bg-brand-amber/5 rounded-full blur-[80px] pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-5 space-y-6 reveal-left">
+        <div class="inline-flex items-center gap-2 bg-brand-amber/20 border border-brand-amber/30 text-brand-gold px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
+          <i data-lucide="award" class="w-4 h-4"></i> Industry-First Purity Promise
+        </div>
+        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
+          The Auramrit <span class="text-brand-gold italic font-normal">100% Money-Back</span> Guarantee.
+        </h2>
+        <p class="text-brand-cream/80 text-base leading-relaxed">
+          Most brands hide stale, oil-extracted nuts behind shiny packaging. At <strong>Auramrit</strong>, we are so confident in our cold-chain storage and direct orchard sourcing that select signature products carry our <strong>Unconditional Taste & Crunch Guarantee</strong>.
+        </p>
+        <div class="space-y-5 pt-4">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-full bg-brand-green flex items-center justify-center shrink-0 mt-0.5 border border-brand-gold/30">
+              <span class="font-bold text-brand-gold text-sm">1</span>
+            </div>
+            <div>
+              <h4 class="font-bold text-white text-base">Order Any Guarantee-Tagged Product</h4>
+              <p class="text-xs sm:text-sm text-brand-cream/70 mt-1">Look for the Golden Shield badge on our flagship nuts, seeds, and grains.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-full bg-brand-green flex items-center justify-center shrink-0 mt-0.5 border border-brand-gold/30">
+              <span class="font-bold text-brand-gold text-sm">2</span>
+            </div>
+            <div>
+              <h4 class="font-bold text-white text-base">Taste Test Up to 15% of the Pack</h4>
+              <p class="text-xs sm:text-sm text-brand-cream/70 mt-1">Experience the natural sweetness, rich oil content, and crisp snap with your family.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-full bg-brand-green flex items-center justify-center shrink-0 mt-0.5 border border-brand-gold/30">
+              <span class="font-bold text-brand-gold text-sm">3</span>
+            </div>
+            <div>
+              <h4 class="font-bold text-white text-base">Not Amazed? Instant 100% Refund</h4>
+              <p class="text-xs sm:text-sm text-brand-cream/70 mt-1">Raise a 1-click claim within 15 days. We pick up the open pack and refund every rupee within 24 hours.</p>
+            </div>
+          </div>
+        </div>
+        <div class="pt-6 flex flex-wrap gap-4">
+          <a href="#products" onclick="filterCategory('guarantee')" class="px-7 py-3.5 bg-brand-amber hover:bg-brand-amber/90 text-white font-bold rounded-full transition shadow-lg flex items-center gap-2 text-sm">
+            <span>Shop Guaranteed Products</span>
+            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+          </a>
+          <button onclick="openGuaranteeModal()" class="px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-full transition text-sm border border-white/15">
+            Learn More
+          </button>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7 reveal-right">
+        <div class="bg-brand-cream text-brand-darkGreen rounded-[2.5rem] p-6 sm:p-10 shadow-2xl border-4 border-brand-gold/30 relative overflow-hidden glow-amber">
+          <div class="absolute top-6 right-6 w-20 h-20 bg-white/50 rounded-full blur-xl"></div>
+          <div class="flex items-center justify-between border-b border-brand-green/10 pb-6 mb-6 relative z-10">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-brand-green flex items-center justify-center">
+                <i data-lucide="leaf" class="w-5 h-5 text-white"></i>
+              </div>
+              <div>
+                <h3 class="font-serif font-bold text-xl text-brand-darkGreen">Zero-Risk Flagship Trio</h3>
+                <p class="text-[10px] text-brand-brown font-medium uppercase tracking-wider">Protected by 15-Day Money-Back Seal</p>
+              </div>
+            </div>
+            <span class="bg-brand-lightGreen text-brand-green text-xs font-bold px-3 py-1 rounded-full border border-brand-green/20 hidden sm:inline-block">Lab Certified</span>
+          </div>
+
+          <div class="space-y-4 relative z-10">
+            <!-- Item 1 -->
+            <div class="flex flex-col sm:flex-row items-center gap-4 bg-white p-5 rounded-2xl border border-brand-green/10 hover:border-brand-amber/40 transition group">
+              <img src="https://images.unsplash.com/photo-1508061253366-f7da158b6d46?auto=format&fit=crop&w=300&q=80" alt="Kashmiri Mamra Almonds" class="w-20 h-20 rounded-2xl object-cover shrink-0" />
+              <div class="flex-1 text-center sm:text-left">
+                <div class="flex items-center gap-2 mb-1 justify-center sm:justify-start">
+                  <span class="bg-brand-amber/15 text-brand-amber text-[10px] font-bold px-2 py-0.5 rounded uppercase">100% Refund</span>
+                  <span class="text-[10px] text-gray-400">500g Glass Jar</span>
+                </div>
+                <h4 class="font-serif font-bold text-lg text-brand-darkGreen">Single-Origin Kashmiri Mamra Almonds</h4>
+                <p class="text-[11px] text-brand-darkGreen/70 mt-1">42% higher natural oil content. Zero cholesterol.</p>
+              </div>
+            </div>
+            <!-- Item 2 -->
+            <div class="flex flex-col sm:flex-row items-center gap-4 bg-white p-5 rounded-2xl border border-brand-green/10 hover:border-brand-amber/40 transition group">
+              <img src="https://images.unsplash.com/photo-1576045057995-568f588f82fb?auto=format&fit=crop&w=300&q=80" alt="Pumpkin Seeds" class="w-20 h-20 rounded-2xl object-cover shrink-0" />
+              <div class="flex-1 text-center sm:text-left">
+                <div class="flex items-center gap-2 mb-1 justify-center sm:justify-start">
+                  <span class="bg-brand-amber/15 text-brand-amber text-[10px] font-bold px-2 py-0.5 rounded uppercase">100% Refund</span>
+                  <span class="text-[10px] text-gray-400">400g Pouch</span>
+                </div>
+                <h4 class="font-serif font-bold text-lg text-brand-darkGreen">Raw AAA Grade Shine-Skin Pumpkin Seeds</h4>
+                <p class="text-[11px] text-brand-darkGreen/70 mt-1">Nitrogen-flushed for zero rancidity. Rich in Zinc & Magnesium.</p>
+              </div>
+            </div>
+            <!-- Item 3 -->
+            <div class="flex flex-col sm:flex-row items-center gap-4 bg-white p-5 rounded-2xl border border-brand-green/10 hover:border-brand-amber/40 transition group">
+              <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=300&q=80" alt="Quinoa" class="w-20 h-20 rounded-2xl object-cover shrink-0" />
+              <div class="flex-1 text-center sm:text-left">
+                <div class="flex items-center gap-2 mb-1 justify-center sm:justify-start">
+                  <span class="bg-brand-amber/15 text-brand-amber text-[10px] font-bold px-2 py-0.5 rounded uppercase">100% Refund</span>
+                  <span class="text-[10px] text-gray-400">1kg Pack</span>
+                </div>
+                <h4 class="font-serif font-bold text-lg text-brand-darkGreen">De-Bittered Royal White Quinoa Grains</h4>
+                <p class="text-[11px] text-brand-darkGreen/70 mt-1">Saponin-free. Cooks fluffy in 12 mins with zero bitterness.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bundle CTA -->
+          <div class="mt-6 bg-brand-lightGreen p-5 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4 border border-brand-green/15 relative z-10">
+            <div class="text-center sm:text-left">
+              <span class="text-[10px] font-bold text-brand-green uppercase tracking-wider">Complete Trial Bundle</span>
+              <p class="text-sm font-semibold text-brand-darkGreen mt-1">Get all 3 Guaranteed Flagships — try them completely risk-free!</p>
+            </div>
+            <a href="#products" class="w-full sm:w-auto bg-brand-brown hover:bg-brand-darkGreen text-white font-bold text-sm px-6 py-3 rounded-xl transition shrink-0 shadow flex items-center justify-center gap-2">
+              <span>View Products</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY AURAMRIT / STORY -->
+<section id="story" class="py-20 lg:py-28 bg-brand-warmCream/50 relative overflow-hidden">
+  <div class="absolute right-0 top-0 w-72 h-72 bg-brand-green/5 rounded-full blur-[80px] pointer-events-none"></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+      <div class="w-16 h-16 rounded-full bg-brand-green flex items-center justify-center mx-auto mb-5 shadow-md">
+        <i data-lucide="leaf" class="w-8 h-8 text-white"></i>
+      </div>
+      <span class="text-[10px] font-bold uppercase tracking-widest text-brand-brown block mb-2">The Auramrit Difference</span>
+      <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-darkGreen mb-4">Why Ordinary Supermarket Dry Fruits Feel Lifeless</h2>
+      <p class="text-brand-darkGreen/75 text-base">Nuts and seeds are living superfoods rich in delicate Omega-3 fats. When exposed to heat and warehouse dust for months, their oils turn rancid. Here is how Auramrit preserves nature's true nectar:</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="bg-white p-8 rounded-[2.5rem] border border-brand-green/10 shadow-sm hover:shadow-lg transition reveal group" style="transition-delay: 0.1s;">
+        <div class="w-14 h-14 rounded-2xl bg-brand-lightGreen text-brand-green flex items-center justify-center mb-6 group-hover:scale-110 transition">
+          <i data-lucide="thermometer-snowflake" class="w-7 h-7"></i>
+        </div>
+        <h3 class="font-serif text-xl font-bold text-brand-darkGreen mb-3">12°C Cold-Chain Storage</h3>
+        <p class="text-sm text-brand-darkGreen/75 leading-relaxed">Unlike wholesale mandis where nuts sit in 40°C summer heat, our harvest is stored in climate-controlled 12°C vaults right until the hour your order is packed.</p>
+      </div>
+      <div class="bg-white p-8 rounded-[2.5rem] border border-brand-green/10 shadow-sm hover:shadow-lg transition reveal group" style="transition-delay: 0.2s;">
+        <div class="w-14 h-14 rounded-2xl bg-brand-amber/15 text-brand-amber flex items-center justify-center mb-6 group-hover:scale-110 transition">
+          <i data-lucide="sparkles" class="w-7 h-7"></i>
+        </div>
+        <h3 class="font-serif text-xl font-bold text-brand-darkGreen mb-3">Zero Acid Bleaching or Talc</h3>
+        <p class="text-sm text-brand-darkGreen/75 leading-relaxed">Many commercial pistachios and cashews are whitened using sulphur dioxide. Auramrit nuts retain their natural earthy ivory hue and 100% raw micronutrient profile.</p>
+      </div>
+      <div class="bg-white p-8 rounded-[2.5rem] border border-brand-green/10 shadow-sm hover:shadow-lg transition reveal group" style="transition-delay: 0.3s;">
+        <div class="w-14 h-14 rounded-2xl bg-brand-brown/15 text-brand-brown flex items-center justify-center mb-6 group-hover:scale-110 transition">
+          <i data-lucide="scan-line" class="w-7 h-7"></i>
+        </div>
+        <h3 class="font-serif text-xl font-bold text-brand-darkGreen mb-3">Batch-Wise Harvest QR Code</h3>
+        <p class="text-sm text-brand-darkGreen/75 leading-relaxed">Every Auramrit pouch features a scannable QR code revealing the exact orchard origin, date of shelling, moisture percentage, and aflatoxin lab safety report.</p>
+      </div>
+    </div>
+
+    <!-- Additional differentiators row -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mt-10 reveal">
+      <div class="bg-brand-green/5 p-5 rounded-2xl text-center border border-brand-green/10">
+        <i data-lucide="droplets" class="w-7 h-7 text-brand-green mx-auto mb-2"></i>
+        <h4 class="font-semibold text-sm text-brand-darkGreen">Natural Oils Intact</h4>
+        <p class="text-[10px] text-brand-darkGreen/60 mt-1">Cold-pressed, never heat-extracted</p>
+      </div>
+      <div class="bg-brand-green/5 p-5 rounded-2xl text-center border border-brand-green/10">
+        <i data-lucide="microscope" class="w-7 h-7 text-brand-green mx-auto mb-2"></i>
+        <h4 class="font-semibold text-sm text-brand-darkGreen">Aflatoxin Tested</h4>
+        <p class="text-[10px] text-brand-darkGreen/60 mt-1">Every batch screened for safety</p>
+      </div>
+      <div class="bg-brand-green/5 p-5 rounded-2xl text-center border border-brand-green/10">
+        <i data-lucide="package-check" class="w-7 h-7 text-brand-green mx-auto mb-2"></i>
+        <h4 class="font-semibold text-sm text-brand-darkGreen">Nitrogen Flushed</h4>
+        <p class="text-[10px] text-brand-darkGreen/60 mt-1">Zero oxidation, zero rancidity</p>
+      </div>
+      <div class="bg-brand-green/5 p-5 rounded-2xl text-center border border-brand-green/10">
+        <i data-lucide="trees" class="w-7 h-7 text-brand-green mx-auto mb-2"></i>
+        <h4 class="font-semibold text-sm text-brand-darkGreen">Farm Direct</h4>
+        <p class="text-[10px] text-brand-darkGreen/60 mt-1">No middlemen, no stale inventory</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="py-20 lg:py-28 bg-brand-cream relative overflow-hidden">
+  <div class="absolute left-0 bottom-0 w-80 h-80 bg-brand-amber/5 rounded-full blur-[100px] pointer-events-none"></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="text-center mb-14 reveal">
+      <span class="text-[10px] font-bold uppercase tracking-widest text-brand-amber block mb-2">Verified Buyers</span>
+      <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-darkGreen">Loved by Health-Conscious Families</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="bg-white p-8 rounded-[2.5rem] border border-brand-green/10 shadow-sm hover:shadow-md transition reveal" style="transition-delay: 0.05s;">
+        <div class="flex text-brand-amber mb-4">
+          <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+          <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+          <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+          <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+          <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+        </div>
+        <p class="text-brand-darkGreen/80 leading-relaxed mb-6 text-sm">"The Mamra almonds taste like they were just plucked. I did the taste test and my kids refused to go back to store-bought. The refund policy gave me confidence to try."</p>
+        <div class="flex items-center gap-3">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80" alt="Customer" class="w-10 h-10 rounded-full object-cover border-2 border-brand-green/20" />
+          <div>
+            <h4 class="font-semibold text-brand-darkGreen text-sm">Aarti Mehta</h4>
+            <p class="text-[10px] text-brand-darkGreen/60">Mumbai • Verified Buyer</p>
+          </div>
+        </div>
+      </div>
+      <div class="bg-white p-8 rounded-[2.5rem] border border-brand-green/10 shadow-sm hover:shadow-md transition reveal" style="transition-delay: 0.15s;">
+        <div class="flex text-brand-amber mb-4">
+          <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+          <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+          <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+          <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+          <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+        </div>
+        <p class="text-brand-darkGreen/80 leading-relaxed mb-6 text-sm">"Cold-chain storage really makes a difference. The pumpkin seeds are crunchy and fresh, not rancid like the ones I used to buy. Highly recommend Auramrit!"</p>
+        <div class="flex items-center gap-3">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80" alt="Customer" class="w-10 h-10 rounded-full object-cover border-2 border-brand-green/20" />
+          <div>
+            <h4 class="font-semibold text-brand-darkGreen text-sm">Rohan Patel</h4>
+            <p class="text-[10px] text-brand-darkGreen/60">Delhi • Verified Buyer</p>
+          </div>
+        </div>
+      </div>
+      <div class="bg-white p-8 rounded-[2.5rem] border border-brand-green/10 shadow-sm hover:shadow-md transition reveal" style="transition-delay: 0.25s;">
+        <div class="flex text-brand-amber mb-4">
+          <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+          <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+          <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+          <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+          <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+        </div>
+        <p class="text-brand-darkGreen/80 leading-relaxed mb-6 text-sm">"The QR code transparency is amazing. I scanned my quinoa pack and saw the exact farm and lab report. It's refreshing to trust a food brand completely."</p>
+        <div class="flex items-center gap-3">
+          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=150&q=80" alt="Customer" class="w-10 h-10 rounded-full object-cover border-2 border-brand-green/20" />
+          <div>
+            <h4 class="font-semibold text-brand-darkGreen text-sm">Sneha Reddy</h4>
+            <p class="text-[10px] text-brand-darkGreen/60">Bangalore • Verified Buyer</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="py-16 lg:py-20 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="bg-brand-green rounded-[2.5rem] p-10 sm:p-14 lg:p-16 text-center relative overflow-hidden glow-green reveal-scale">
+      <div class="absolute inset-0 pattern-bg pointer-events-none" style="opacity: 0.15;"></div>
+      <div class="absolute -right-16 -top-16 w-48 h-48 bg-brand-amber/10 rounded-full blur-[60px] pointer-events-none"></div>
+      <div class="absolute -left-16 -bottom-16 w-48 h-48 bg-brand-gold/10 rounded-full blur-[60px] pointer-events-none"></div>
+      <div class="relative z-10">
+        <div class="w-16 h-16 rounded-full bg-white/10 border border-brand-gold/30 flex items-center justify-center mx-auto mb-6">
+          <i data-lucide="rocket" class="w-8 h-8 text-brand-gold"></i>
+        </div>
+        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">Be First in Line</h2>
+        <p class="text-brand-cream/70 mb-8 max-w-xl mx-auto">Join 25,000+ Indian families eagerly waiting for our grand opening. Early subscribers unlock exclusive launch-day pricing and free gifts.</p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="#notify" class="w-full sm:w-auto px-10 py-4 bg-brand-amber hover:bg-brand-amber/90 text-white font-bold rounded-full transition shadow-lg text-base flex items-center justify-center gap-2">
+            <span>Notify Me at Launch</span>
+            <i data-lucide="bell-ring" class="w-5 h-5"></i>
+          </a>
+          <a href="#products" class="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-full transition text-base border border-white/15 flex items-center justify-center gap-2">
+            <i data-lucide="eye" class="w-5 h-5 text-brand-gold"></i>
+            <span>Preview Products</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="py-14 bg-brand-warmCream/60 border-y border-brand-green/10">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+    <i data-lucide="mail" class="w-8 h-8 text-brand-green mx-auto mb-4"></i>
+    <h2 class="font-serif text-2xl sm:text-3xl font-bold text-brand-darkGreen mb-3">Join the Auramrit Family</h2>
+    <p class="text-brand-darkGreen/70 mb-8">Subscribe for harvest updates, wellness tips, and early access to our money-back guarantee products.</p>
+    <form onsubmit="event.preventDefault(); showToast('Welcome to the Auramrit family! 🌿');" class="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto">
+      <input type="email" placeholder="Enter your email" required class="flex-1 px-5 py-3.5 rounded-full bg-white border border-brand-green/20 text-brand-darkGreen placeholder-brand-darkGreen/40 focus:outline-none focus:border-brand-green transition shadow-sm" />
+      <button type="submit" class="bg-brand-green hover:bg-brand-darkGreen text-white font-semibold px-8 py-3.5 rounded-full transition shadow-lg">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-brand-darkGreen text-brand-cream py-12 lg:py-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+      <div class="col-span-1 md:col-span-1">
+        <div class="flex items-center gap-2 mb-4">
+          <div class="w-8 h-8 rounded-full bg-brand-green flex items-center justify-center">
+            <i data-lucide="leaf" class="w-4 h-4 text-white"></i>
+          </div>
+          <span class="font-serif text-xl font-bold text-white">Auramrit</span>
+        </div>
+        <p class="text-brand-cream/60 text-sm leading-relaxed max-w-xs">
+          The Blend of Blessings — pure, organic nuts, seeds, and grains delivered with a promise of freshness and purity.
+        </p>
+        <div class="flex items-center gap-3 mt-4">
+          <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-brand-amber flex items-center justify-center transition">
+            <i data-lucide="instagram" class="w-4 h-4"></i>
+          </a>
+          <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-brand-amber flex items-center justify-center transition">
+            <i data-lucide="facebook" class="w-4 h-4"></i>
+          </a>
+          <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-brand-amber flex items-center justify-center transition">
+            <i data-lucide="twitter" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Collections</h4>
+        <ul class="space-y-2 text-sm text-brand-cream/70">
+          <li><a href="#products" onclick="filterCategory('nuts')" class="hover:text-brand-gold transition">Royal Nuts</a></li>
+          <li><a href="#products" onclick="filterCategory('seeds')" class="hover:text-brand-gold transition">Super Seeds</a></li>
+          <li><a href="#products" onclick="filterCategory('grains')" class="hover:text-brand-gold transition">Ancient Grains</a></li>
+          <li><a href="#products" onclick="filterCategory('guarantee')" class="hover:text-brand-gold transition">Guaranteed Products</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Support</h4>
+        <ul class="space-y-2 text-sm text-brand-cream/70">
+          <li><a href="#guarantee" class="hover:text-brand-gold transition">Money-Back Guarantee</a></li>
+          <li><a href="#story" class="hover:text-brand-gold transition">Our Story</a></li>
+          <li><a href="#" class="hover:text-brand-gold transition">Shipping & Returns</a></li>
+          <li><a href="#" class="hover:text-brand-gold transition">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Newsletter</h4>
+        <p class="text-sm text-brand-cream/70 mb-4">Get harvest updates & 10% off your first order.</p>
+        <form onsubmit="event.preventDefault(); showToast('Subscribed! 🌿');" class="flex gap-2">
+          <input type="email" placeholder="Your email" class="flex-1 px-4 py-2.5 rounded-lg bg-brand-green/40 border border-brand-green/30 text-white placeholder-brand-cream/50 focus:outline-none focus:border-brand-gold transition" />
+          <button class="bg-brand-amber text-white px-4 py-2.5 rounded-lg hover:bg-brand-darkGreen transition">Go</button>
+        </form>
+      </div>
+    </div>
+    <div class="border-t border-brand-green/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-brand-cream/50">
+      <p>© 2024 Auramrit. All rights reserved. The Blend of Blessings™</p>
+      <div class="flex gap-4">
+        <a href="#" class="hover:text-brand-gold transition">Privacy Policy</a>
+        <a href="#" class="hover:text-brand-gold transition">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- GUARANTEE MODAL -->
+<div id="guarantee-modal" class="fixed inset-0 z-50 flex items-center justify-center">
+  <div class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity" onclick="closeGuaranteeModal()"></div>
+  <div class="bg-brand-cream relative z-10 w-full max-w-lg mx-4 p-6 sm:p-8 rounded-[2.5rem] shadow-2xl border border-brand-green/20 transform scale-95 opacity-0 transition-all duration-300" id="modal-content">
+    <button onclick="closeGuaranteeModal()" class="absolute top-5 right-5 text-brand-darkGreen/60 hover:text-brand-green">
+      <i data-lucide="x" class="w-5 h-5"></i>
+    </button>
+    <div class="text-center">
+      <div class="w-16 h-16 rounded-full bg-brand-amber/15 border border-brand-amber flex items-center justify-center mx-auto mb-6 text-brand-amber">
+        <i data-lucide="shield-check" class="w-8 h-8"></i>
+      </div>
+      <h3 class="font-serif text-2xl font-bold text-brand-darkGreen mb-3">Auramrit Oath™</h3>
+      <p class="text-brand-darkGreen/80 text-sm leading-relaxed mb-6">
+        We stand behind every kernel. If you are not delighted with the freshness, crunch, or aroma of any Guarantee-Tagged product, simply raise a claim within 15 days. We collect the open pack and refund 100% of your money — no questions asked.
+      </p>
+      <div class="bg-brand-lightGreen rounded-2xl p-4 mb-6 text-left space-y-2">
+        <div class="flex items-center gap-2 text-sm text-brand-darkGreen">
+          <i data-lucide="check-circle" class="w-4 h-4 text-brand-green shrink-0"></i>
+          <span>Try up to 15% of the product</span>
+        </div>
+        <div class="flex items-center gap-2 text-sm text-brand-darkGreen">
+          <i data-lucide="check-circle" class="w-4 h-4 text-brand-green shrink-0"></i>
+          <span>Claim within 15 days of delivery</span>
+        </div>
+        <div class="flex items-center gap-2 text-sm text-brand-darkGreen">
+          <i data-lucide="check-circle" class="w-4 h-4 text-brand-green shrink-0"></i>
+          <span>100% refund processed in 24 hours</span>
+        </div>
+      </div>
+      <button onclick="closeGuaranteeModal()" class="w-full bg-brand-green hover:bg-brand-darkGreen text-white font-bold py-3 rounded-xl transition">I Understand</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// Product Data (no prices shown)
+const products = [
+  { id: 1, name: "Kashmiri Mamra Almonds", category: "nuts", image: "https://images.unsplash.com/photo-1508061253366-f7da158b6d46?auto=format&fit=crop&w=600&q=80", desc: "Single-origin, 42% higher natural oil content than California almonds.", guarantee: true, weight: "500g Glass Jar", badge: "Premium" },
+  { id: 2, name: "Walnut Halves & Pieces", category: "nuts", image: "https://images.unsplash.com/photo-1547182310-f84a6bbb762c?auto=format&fit=crop&w=600&q=80", desc: "Rich in Omega-3, hand-shelled to preserve delicate oils.", guarantee: false, weight: "250g Pouch", badge: "Classic" },
+  { id: 3, name: "Jumbo Cashew Kernels", category: "nuts", image: "https://images.unsplash.com/photo-1518287830427-ae67c0f56451?auto=format&fit=crop&w=600&q=80", desc: "Naturally sweet, whole W240 grade. Zero artificial salt.", guarantee: false, weight: "200g Jar", badge: "Classic" },
+  { id: 4, name: "Shine-Skin Pumpkin Seeds", category: "seeds", image: "https://images.unsplash.com/photo-1576045057995-568f588f82fb?auto=format&fit=crop&w=600&q=80", desc: "AAA grade, nitrogen-flushed for zero rancidity. Rich in Zinc & Magnesium.", guarantee: true, weight: "400g Pouch", badge: "Superfood" },
+  { id: 5, name: "Organic Black Chia Seeds", category: "seeds", image: "https://images.unsplash.com/photo-1515543237350-b3eea1ec8082?auto=format&fit=crop&w=600&q=80", desc: "High in fibre and plant-based protein. Great for puddings.", guarantee: false, weight: "300g Pouch", badge: "Superfood" },
+  { id: 6, name: "Hulled Hemp Hearts", category: "seeds", image: "https://images.unsplash.com/photo-1602629599961-62768359944b?auto=format&fit=crop&w=600&q=80", desc: "Complete protein source with all 9 essential amino acids.", guarantee: false, weight: "200g Jar", badge: "Superfood" },
+  { id: 7, name: "Royal White Quinoa", category: "grains", image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=600&q=80", desc: "De-bittered, saponin-free. Cooks fluffy in 12 mins.", guarantee: true, weight: "1kg Pack", badge: "Heritage" },
+  { id: 8, name: "Jowar (Sorghum) Grains", category: "grains", image: "https://images.unsplash.com/photo-1580489848427-8649495be0c7?auto=format&fit=crop&w=600&q=80", desc: "Gluten-free ancient millet. Perfect for rotis and porridge.", guarantee: false, weight: "1kg Bag", badge: "Heritage" },
+  { id: 9, name: "Amaranth (Rajgira)", category: "grains", image: "https://images.unsplash.com/photo-1616577778758-6b9168fb55b7?auto=format&fit=crop&w=600&q=80", desc: "Protein-rich pseudo-cereal. Traditional fasting favourite.", guarantee: false, weight: "500g Pouch", badge: "Heritage" },
+  { id: 10, name: "Daily Immunity Nut & Seed Jar", category: "guarantee", image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=600&q=80", desc: "Curated mix of almonds, walnuts, pumpkin & chia. Lab tested.", guarantee: true, weight: "400g Jar", badge: "Bestseller" },
+  { id: 11, name: "Snack-Time Roasted Seed Mix", category: "guarantee", image: "https://images.unsplash.com/photo-1601108289265-04e87935712f?auto=format&fit=crop&w=600&q=80", desc: "Roasted sunflower, pumpkin & melon seeds with sea salt.", guarantee: true, weight: "150g Pouch", badge: "Snack" },
+  { id: 12, name: "Heritage Millet Combo", category: "guarantee", image: "https://images.unsplash.com/photo-1591137723701-30e0a045db24?auto=format&fit=crop&w=600&q=80", desc: "Stone-ground bajra, jowar, and ragi flour combo pack.", guarantee: true, weight: "900g Pack", badge: "Combo" },
+];
+
+let currentFilter = 'all';
+
+function renderProducts() {
+  const grid = document.getElementById('product-grid');
+  grid.innerHTML = '';
+  const filtered = currentFilter === 'all' ? products : products.filter(p => p.category === currentFilter);
+
+  if (filtered.length === 0) {
+    grid.innerHTML = `<div class="col-span-full text-center py-20"><p class="text-brand-darkGreen/50">No products found in this category.</p></div>`;
+    return;
+  }
+
+  filtered.forEach((product, index) => {
+    const card = document.createElement('div');
+    card.className = 'product-card card-hover group bg-white rounded-[2rem] border border-brand-green/10 overflow-hidden flex flex-col reveal';
+    card.style.transitionDelay = `${index * 0.06}s`;
+
+    const badgeColors = {
+      'Premium': 'bg-brand-amber text-white',
+      'Classic': 'bg-brand-green/10 text-brand-green',
+      'Superfood': 'bg-brand-green text-white',
+      'Heritage': 'bg-brand-brown/15 text-brand-brown',
+      'Bestseller': 'bg-brand-amber text-white',
+      'Snack': 'bg-brand-green/10 text-brand-green',
+      'Combo': 'bg-brand-brown text-white',
+    };
+    const badgeClass = badgeColors[product.badge] || 'bg-brand-green/10 text-brand-green';
+
+    card.innerHTML = `
+      <div class="relative aspect-[4/3] overflow-hidden bg-brand-lightGreen">
+        <img src="${product.image}" alt="${product.name}" class="product-card-img w-full h-full object-cover object-center" />
+        <div class="absolute top-3 left-3 flex items-center gap-2">
+          <span class="${badgeClass} text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">${product.badge}</span>
+          ${product.guarantee ? `<span class="bg-brand-amber text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase shadow flex items-center gap-1"><span>✓</span> 100% Refund</span>` : ''}
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition"></div>
+      </div>
+      <div class="p-5 flex flex-col flex-1">
+        <div class="flex items-start justify-between gap-2 mb-1">
+          <h3 class="font-serif font-bold text-brand-darkGreen text-lg leading-tight">${product.name}</h3>
+        </div>
+        <span class="text-[10px] text-brand-brown font-medium mb-2">${product.weight}</span>
+        <p class="text-[11px] text-brand-darkGreen/60 line-clamp-2 flex-1">${product.desc}</p>
+        <div class="mt-4 w-full bg-brand-lightGreen text-brand-green text-xs font-bold px-4 py-2.5 rounded-xl flex items-center justify-center gap-2 border border-brand-green/15">
+          <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+          <span>Available at Launch</span>
+        </div>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+
+  lucide.createIcons();
+  // Re-observe new elements
+  document.querySelectorAll('#product-grid .reveal').forEach(el => observer.observe(el));
+}
+
+// Filter
+window.filterCategory = function(cat) {
+  currentFilter = cat;
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    const isActive = btn.dataset.filter === cat;
+    btn.classList.toggle('bg-brand-green', isActive);
+    btn.classList.toggle('text-white', isActive);
+    btn.classList.toggle('shadow-sm', isActive);
+    if (!isActive) {
+      btn.classList.remove('bg-brand-green', 'text-white', 'shadow-sm');
+      btn.classList.add('text-brand-darkGreen');
+    } else {
+      btn.classList.remove('text-brand-darkGreen');
+    }
+  });
+  renderProducts();
+};
+
+// Mobile Menu
+window.toggleMobileMenu = function() {
+  const menu = document.getElementById('mobile-menu');
+  const btn = document.getElementById('mobile-menu-btn');
+  const icon = btn.querySelector('i');
+  if (menu.classList.contains('hidden')) {
+    menu.classList.remove('hidden');
+    icon.setAttribute('data-lucide', 'x');
+  } else {
+    menu.classList.add('hidden');
+    icon.setAttribute('data-lucide', 'menu');
+  }
+  lucide.createIcons();
+};
+
+document.getElementById('mobile-menu-btn').addEventListener('click', toggleMobileMenu);
+
+// Guarantee Modal
+window.openGuaranteeModal = function() {
+  const modal = document.getElementById('guarantee-modal');
+  const content = document.getElementById('modal-content');
+  modal.classList.add('open');
+  setTimeout(() => {
+    content.classList.remove('scale-95', 'opacity-0');
+    content.classList.add('scale-100', 'opacity-100');
+  }, 10);
+};
+
+window.closeGuaranteeModal = function() {
+  const modal = document.getElementById('guarantee-modal');
+  const content = document.getElementById('modal-content');
+  content.classList.remove('scale-100', 'opacity-100');
+  content.classList.add('scale-95', 'opacity-0');
+  setTimeout(() => modal.classList.remove('open'), 300);
+};
+
+// Toast
+window.showToast = function(msg) {
+  const toast = document.getElementById('toast');
+  toast.querySelector('span').textContent = msg;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 3000);
+};
+
+// Notify Signup Handler
+window.handleNotifySignup = function() {
+  const email = document.getElementById('notify-email').value;
+  if (email) {
+    showToast('🎉 You\'re on the list! We\'ll notify you at launch.');
+    document.getElementById('notify-email').value = '';
+  }
+};
+
+// Countdown Timer (30 days from now)
+function startCountdown() {
+  const launchDate = new Date();
+  launchDate.setDate(launchDate.getDate() + 30);
+
+  function updateCountdown() {
+    const now = new Date();
+    const diff = launchDate - now;
+
+    if (diff <= 0) {
+      document.getElementById('countdown-days').textContent = '00';
+      document.getElementById('countdown-hours').textContent = '00';
+      document.getElementById('countdown-minutes').textContent = '00';
+      document.getElementById('countdown-seconds').textContent = '00';
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    document.getElementById('countdown-days').textContent = String(days).padStart(2, '0');
+    document.getElementById('countdown-hours').textContent = String(hours).padStart(2, '0');
+    document.getElementById('countdown-minutes').textContent = String(minutes).padStart(2, '0');
+    document.getElementById('countdown-seconds').textContent = String(seconds).padStart(2, '0');
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+}
+
+// Scroll reveal observer
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('active');
+  });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => observer.observe(el));
+
+// Navbar scroll effect
+let lastScroll = 0;
+window.addEventListener('scroll', () => {
+  const navbar = document.getElementById('navbar');
+  const scroll = window.scrollY;
+  if (scroll > 100) {
+    navbar.classList.add('shadow-md');
+  } else {
+    navbar.classList.remove('shadow-md');
+  }
+  lastScroll = scroll;
+});
+
+// Init
+lucide.createIcons();
+renderProducts();
+startCountdown();
+</script>
+</body>
+</html>
