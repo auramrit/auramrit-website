@@ -1178,5 +1178,18 @@ lucide.createIcons();
 renderProducts();
 startCountdown();
 </script>
+  <script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll(
+    '.reveal, .reveal-left, .reveal-right, .reveal-scale'
+  ).forEach(function (element) {
+    element.classList.add('active');
+  });
+
+  if (window.lucide) {
+    window.lucide.createIcons();
+  }
+});
+  </script>
 </body>
 </html>
